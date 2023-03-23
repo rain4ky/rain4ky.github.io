@@ -5,9 +5,7 @@
 		<meta charset="utf-8">
         <meta name="author" content="rain4ky">
         <meta name="viewport" content="width=device-width,initial-scale=1">
-        <script>
-			alert("哈哈！啥也没有！");
-		</script>
+        <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 	</head>
 	<body>
         <article>
@@ -17,6 +15,16 @@
             <footer>作为初学者，不会是很正常的事。</footer>
         </article>
 	<img src='/images/uTools_1679495509805.png'>
+	<div id="markdown"></div>
+	<script>
+		fetch('README.md')
+			.then(response => response.text())
+			.then(text => 
+			{
+				const markdown=document.getElementById('markdown');
+				markdown.innerHTML=marked(text);
+			})
+	</script>
         <footer>
             <a href="https://github.com/rain4ky">我的github主页</a>
         </footer>
